@@ -1,0 +1,50 @@
+@import '../../scss/_colors.scss';
+@import '../../scss/_screen.scss';
+
+nav {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $primary-color;
+    z-index: 9999;
+}
+
+.nav-list {
+    height: 10vh;
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    margin-left: auto;
+    list-style: none;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    a {
+        height: 100%;
+        text-align: center;
+        text-decoration: none;
+        padding: 0px 6px;
+        color: $accent-darker-color;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        &.active {
+            color: $accent-color;
+            font-weight: bold;
+        }
+        &:hover {
+            background-color: $accent-color;
+            color: $primary-color;
+        }
+    }
+}
+
+@media only screen and (max-width: $screen-medium) {
+    .nav-list {
+        width: 100%;
+        font-size: small;
+    }
+}

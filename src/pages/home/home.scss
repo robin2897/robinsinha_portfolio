@@ -1,0 +1,251 @@
+@import "../../scss/_colors.scss";
+@import '../../scss/_screen.scss';
+@import '../../scss/_shared.scss';
+
+.landing-page {
+    margin-top: 10vh;
+    height: 90vh;
+    width: 100%;
+}
+
+.skills-page {
+    height: 65vh;
+    width: 100%;
+    background-color: $primary-color;
+}
+
+.certification-page {
+    height: fit-content;
+    width: 100%;
+    background-color: $secondary-color;
+}
+
+.findme-page {
+    height: 40vh;
+    width: 100%;
+    background-color: $primary-color;
+}
+
+.landing-heading {
+    padding: 10px 0px;
+    p {
+        font-size: 5em;
+        font-family: 'Vidaloka', serif;
+        color: $accent-darker-color;
+        text-align: center;
+        span {
+            font-weight: bold;
+        }
+    }
+}
+
+.landing-sub-heading {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    p {
+        width: 48%;
+        font-size: 0.76em;
+        color: $accent-darker-color;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+
+.landing-caption {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 40px 0px;
+    .landing-contact-button {
+        padding: 8px;
+        background-color: $accent-color;
+        color: $accent-darker-color;
+        text-align: center;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        border-radius: 3px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+        &:hover {
+            background-color: $accent-darker-color;
+            color: $accent-color;
+        }
+    }
+}
+
+.react-rotating-text-cursor {
+    color: $accent-color;
+    font-weight: lighter !important;
+    animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s infinite;
+}
+
+@keyframes blinking-cursor {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.skills-container {
+    height: 100%;
+    padding: 0px 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.skills-description {
+    width: 60%;
+    color: $accent-darker-color;
+    border: solid medium $accent-darker-color;
+    padding: 18px;
+    p {
+        margin-top: 8px;
+        font-size: small;
+    }
+}
+
+.skill {
+    color: $accent-darker-color;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 8px 16px;
+    flex-wrap: wrap;
+    div {
+        margin: 0px 16px;
+    }
+    i {
+        min-width: 40px;
+    }
+}
+
+.certification-container {
+    height: 100%;
+    padding: 0px 100px;
+    flex-grow: 1;
+}
+
+.certification-description {
+    color: $accent-darker-color;
+    h1 {
+        width: fit-content;
+        padding: 18px;
+        border: solid medium $accent-darker-color;
+    }
+}
+
+.certificate-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.certificate-button {
+    margin: 4px 0px !important;
+}
+
+.timeline-card {
+    margin-top: 6px;
+    padding: 6px 16px,
+}
+
+
+.findme-description {
+    color: $accent-darker-color;
+    z-index: 1000;
+    h1 {
+        width: fit-content;
+        padding: 18px;
+        border: solid medium $accent-darker-color;
+    }
+}
+
+.findme-container {
+    height: 100%;
+    padding: 0px 100px;
+    flex-grow: 1;
+    padding-top: 100px !important;
+    background-color: $primary-color;
+}
+
+.icon-social {
+    min-width: 30px;
+}
+
+.social-link {
+    color: $accent-darker-color;
+    text-decoration: none;
+    &:hover {
+        color: $accent-color;
+    }
+}
+
+@media only screen and (max-width: $screen-xlarge) {
+    .skills-page {
+        height: fit-content;
+        padding: 8px inherit;
+    }
+
+    .skills-container {
+        padding: 6px 10px;
+        display: block;
+    }
+
+    .skills-description {
+        width: 100%;
+        padding: 14px;
+        display: block;
+        p {
+            display: none;
+        }
+    }
+
+    .skill {
+        font-size: 0.96em;
+        text-align: center;
+        i {
+            min-width: 40px;
+        }
+    }
+}
+
+@media only screen and (max-width: $screen-medium) {
+    .findme-container {
+        padding: 15px !important;
+    }
+
+    .landing-page {
+        height: 60vh;
+        width: 100%;
+    }
+
+    .findme-page {
+        padding: 8px;
+        height: fit-content;
+    }
+
+    .landing-heading {
+        padding: 6px 0px;
+        p {
+            font-size: 2.6em;
+        }
+    }
+
+    .landing-sub-heading {
+        p {
+            width: 100%;
+        }
+    }
+
+    .certification-container {
+        padding: 6px 10px;
+        display: block;
+    }
+}

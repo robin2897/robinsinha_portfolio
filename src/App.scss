@@ -1,0 +1,5 @@
+@import "scss/_colors.scss";
+
+.my-body-container {
+    background-image: linear-gradient(135deg, $secondary-color 0%, $primary-color 100%);
+}
