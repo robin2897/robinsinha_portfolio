@@ -3,6 +3,39 @@
 @import '../../scss/_shared.scss';
 
 .project-landing {
+    margin-top: 10vh;
     height: 90vh;
     width: 100%;
+    overflow-x: hidden;
+}
+
+.project-container {
+    height: 100%;
+    padding: 0px 100px;
+    flex-grow: 1;
+    padding-top: 50px !important;
+}
+
+.project-description {
+    color: $accent-darker-color;
+    z-index: 1000;
+    h1 {
+        width: fit-content;
+        padding: 18px;
+        border: solid medium $accent-darker-color;
+    }
+}
+
+.project-timeline-card {
+    margin-top: 6px;
+    padding: 6px 16px;
+    opacity: 0;
+}
+
+@media only screen and (max-width: $screen-medium) {
+    .project-container {
+        width: 100%;
+        padding: 8px 0px !important;
+        height: fit-content;
+    }
 }

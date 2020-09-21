@@ -1,28 +1,58 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { Timeline, TimelineItem, TimelineSeparator, TimelineOppositeContent,
-         TimelineConnector, TimelineContent, TimelineDot } from "@material-ui/lab";
+import ReactRotatingText from 'react-rotating-text';
+
+import {
+    Timeline, TimelineItem, TimelineSeparator, TimelineOppositeContent,
+    TimelineConnector, TimelineContent, TimelineDot
+} from "@material-ui/lab";
 import { Typography, Paper, ThemeProvider, Button, Grid } from "@material-ui/core";
+
+import * as ScrollMagic from "scrollmagic";
+import gsap from "gsap";
+import { TweenMax } from "gsap";
+
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 
 import { customMaterialTheme } from "../../MaterialUiTheme";
 import './home.scss'
 
-var ReactRotatingText = require('react-rotating-text');
+ScrollMagicPluginGsap(ScrollMagic, gsap);
 
 export class HomeComponent extends React.Component {
-    LandSection() {
-        var skills = ["a Biotech Student", "a Software Developer", "a Web Developer", "a Researcher", "a Technology Enthusiast",
+    constructor(props) {
+        super(props);
+
+        this.CertficationSection = this.CertficationSection.bind(this);
+        this.LandSection = this.LandSection.bind(this);
+        this.SkillsetSection = this.SkillsetSection.bind(this);
+        this.touchMove = this.touchMove.bind(this);
+        this.fixMask = this.fixMask.bind(this);
+        this.spotlightEffect = this.spotlightEffect.bind(this);
+        
+        this.skills = ["a Biotech Student", "a Software Developer", "a Web Developer", "a Researcher", "a Technology Enthusiast",
                        "an AI Enthusiast", "a Gamer"]
+
+        this.sectionFindMePage = null;
+        this.timelineElement = null;
+
+        this.scrollController = new ScrollMagic.Controller();
+        this.spotlightAnimationFrame = null;
+        this.timelineTheme = customMaterialTheme();
+        this.mouse = {x: -100, y: -100 };
+    }
+
+    LandSection() {
         return (
             <div className="container">
                 <div>
                     <div id="landing-heading" className="landing-heading">
-                        <p>I'm <ReactRotatingText items={skills} pause={3000} /></p>
-                        <p>Robin Sinha</p>
+                        <p>I'm <ReactRotatingText items={this.skills} pause={3000} /></p>
+                        <p className="anime-landing">Robin Sinha</p>
                     </div>
                     <div id="landing-sub-heading" className="landing-sub-heading">
-                        <p>
-                        Hello! I am an aspiring Software developer who loves technology, and very curious to know how technology work and how can I use it for myself
+                        <p className="anime-landing">
+                            Hello! I am an aspiring Software developer who loves technology, and very curious to know how technology work and how can I use it for myself
                         </p>
                     </div>
                     <div id="landing-caption" className="landing-caption">
@@ -75,7 +105,6 @@ export class HomeComponent extends React.Component {
     }
 
     CertficationSection() {
-        var timelineTheme = customMaterialTheme();
         return (
             <div className="certification-container">
                 <Grid container spacing={2} direction="row" justify="space-around" alignItems="center">
@@ -84,18 +113,18 @@ export class HomeComponent extends React.Component {
                             <h1>Certification/Badges</h1>
                         </div>
                     </Grid>
-                    <Grid item lg={12} container>
-                    <ThemeProvider theme={timelineTheme}>
+                    <Grid item lg={12} container ref={div => this.timelineElement = div}>
+                        <ThemeProvider theme={this.timelineTheme}>
                             <Timeline>
                                 <TimelineItem>
                                     <TimelineOppositeContent>
-                                    <Typography variant="body2" color="textSecondary">
-                                        <b>2020 (Certificates)</b>
-                                    </Typography>
+                                        <Typography variant="body2" color="textSecondary">
+                                            <b>2020 (Certificates)</b>
+                                        </Typography>
                                     </TimelineOppositeContent>
                                     <TimelineSeparator>
-                                    <TimelineDot color="secondary"/>
-                                    <TimelineConnector />
+                                        <TimelineDot color="secondary" />
+                                        <TimelineConnector />
                                     </TimelineSeparator>
                                     <TimelineContent>
                                         <Paper elevation={3} className="timeline-card">
@@ -135,13 +164,13 @@ export class HomeComponent extends React.Component {
                                 </TimelineItem>
                                 <TimelineItem>
                                     <TimelineOppositeContent>
-                                    <Typography variant="body2" color="textSecondary">
-                                        <b>2020 (Badges)</b>
-                                    </Typography>
+                                        <Typography variant="body2" color="textSecondary">
+                                            <b>2020 (Badges)</b>
+                                        </Typography>
                                     </TimelineOppositeContent>
                                     <TimelineSeparator>
-                                    <TimelineDot color="secondary"/>
-                                    <TimelineConnector />
+                                        <TimelineDot color="secondary" />
+                                        <TimelineConnector />
                                     </TimelineSeparator>
                                     <TimelineContent>
                                         <Paper elevation={3} className="timeline-card">
@@ -181,13 +210,13 @@ export class HomeComponent extends React.Component {
                                 </TimelineItem>
                                 <TimelineItem>
                                     <TimelineOppositeContent>
-                                    <Typography variant="body2" color="textSecondary">
-                                        <b>2017 (Certificates)</b>
-                                    </Typography>
+                                        <Typography variant="body2" color="textSecondary">
+                                            <b>2017 (Certificates)</b>
+                                        </Typography>
                                     </TimelineOppositeContent>
                                     <TimelineSeparator>
-                                    <TimelineDot color="secondary"/>
-                                    <TimelineConnector />
+                                        <TimelineDot color="secondary" />
+                                        <TimelineConnector />
                                     </TimelineSeparator>
                                     <TimelineContent>
                                         <Paper elevation={3} className="timeline-card">
@@ -267,7 +296,7 @@ export class HomeComponent extends React.Component {
                                         </Grid>
                                         <Grid item>
                                             <Typography variant="subtitle2" color="textSecondary">
-                                                <a className="social-link" href="mailto:rsinha126@gmail.com?subject=Hi%20Robin%20from%20your%20website">
+                                                <a className="social-link" href="mailto:rsinha126@gmail.com">
                                                     rsinha126@gmail.com
                                                 </a>
                                             </Typography>
@@ -279,51 +308,17 @@ export class HomeComponent extends React.Component {
                     </Grid>
                 </ThemeProvider>
             </div>
-        ); 
+        );
     }
 
-    componentDidMount() {
-        var sectionFindMePage = document.getElementById('findme-page')
-        var mouse = {
-            x: -100,
-            y: -100
-        };
+    fixMask() {
+        this.spotlightAnimationFrame = window.requestAnimationFrame(this.fixMask);
+        // Create string for -webkit-mask-image CSS attribute
+        var strImage = '-webkit-radial-gradient(' + this.mouse.x + 'px ' + this.mouse.y + 'px,200px 200px, rgba(0, 0, 0, 1) 0%,rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0.0) 80%, rgba(0, 0, 0, 0.0) 100%)';
+        this.sectionFindMePage.style.WebkitMaskImage = strImage;
+    }
 
-        fixMask();
-
-        if ('ontouchstart' in document.documentElement) {
-            // Touch events available, wire to touchStart and touchMove
-            sectionFindMePage.addEventListener('touchmove', touchMove, false);
-            sectionFindMePage.addEventListener('touchstart', touchStart, false);
-            sectionFindMePage.addEventListener('touchend', touchEnd, false);
-        } else {
-            // Touch events not available, wire to touchMove only
-            sectionFindMePage.addEventListener('mousemove', touchMove, false);
-        }
-
-        function fixMask() {
-            global.requestAnimationFrame(fixMask);
-            // Create string for -webkit-mask-image CSS attribute
-            var strImage = '-webkit-radial-gradient(' + mouse.x + 'px ' + mouse.y + 'px,200px 200px, rgba(0, 0, 0, 1) 0%,rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0.0) 80%, rgba(0, 0, 0, 0.0) 100%)';
-            sectionFindMePage.style.WebkitMaskImage = strImage;
-        }
-
-        function touchMove(e) {
-            if (e.touches == null) {
-                mouse = getMouse(e, sectionFindMePage);
-            } else {
-                var targetEvent = e.touches.item(0);
-                mouse.x = targetEvent.clientX;
-                mouse.y = targetEvent.clientY;
-            }
-            e.preventDefault();
-            return false;
-        }
-
-        function touchEnd(e) {}
-
-        function touchStart(e) {}
-
+    touchMove(e) {
         function getMouse(e, canvas) {
             var element = canvas,
                 offsetX = 0,
@@ -335,7 +330,7 @@ export class HomeComponent extends React.Component {
                     offsetY += element.offsetTop;
                 } while ((element = element.offsetParent));
             }
-        
+
             mx = e.pageX - offsetX;
             my = e.pageY - offsetY;
             return {
@@ -343,6 +338,49 @@ export class HomeComponent extends React.Component {
                 y: my
             };
         }
+
+        if (e.touches == null) {
+            this.mouse = getMouse(e, this.sectionFindMePage);
+        } else {
+            var targetEvent = e.touches.item(0);
+            this.mouse.x = targetEvent.clientX;
+            this.mouse.y = targetEvent.clientY;
+        }
+        e.preventDefault();
+        return false;
+    }
+
+    spotlightEffect() {
+        this.fixMask();
+        if ('ontouchstart' in document.documentElement) {
+            // Touch events available, wire to touchStart and touchMove
+            this.sectionFindMePage.addEventListener('touchmove', this.touchMove, false);
+        } else {
+            // Touch events not available, wire to touchMove only
+            this.sectionFindMePage.addEventListener('mousemove', this.touchMove, false);
+        }
+    }
+
+    componentDidMount() {
+        TweenMax.fromTo(".anime-landing", 1.5, {y: 50, opacity: 0}, {y: 0, opacity: 1}).play();
+        TweenMax.fromTo(".landing-sub-heading", 1.5, {y: 50, opacity: 0}, {y: 0, opacity: 1}).play();
+
+        new ScrollMagic.Scene({
+            duration: '100%',
+            triggerElement: ".certification-page",
+            reverse: false
+        })
+            .setTween(TweenMax.fromTo(this.timelineElement, 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0}))
+            .addTo(this.scrollController);
+
+        this.spotlightEffect();
+    }
+
+    componentWillUnmount() {
+        this.sectionFindMePage.removeEventListener('touchmove', this.touchMove);
+        this.sectionFindMePage.removeEventListener('mousemove', this.touchMove);
+        this.scrollController.destroy(true);
+        window.cancelAnimationFrame(this.spotlightAnimationFrame);
     }
 
     render() {
@@ -357,7 +395,7 @@ export class HomeComponent extends React.Component {
                 <section className="certification-page">
                     <this.CertficationSection />
                 </section>
-                <section className="findme-page" id="findme-page">
+                <section className="findme-page" ref={div => this.sectionFindMePage = div}>
                     <this.FindMePage />
                 </section>
             </div>

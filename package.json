@@ -16,6 +16,8 @@
     "react-rotating-text": "^1.4.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "scrollmagic": "^2.0.7",
+    "scrollmagic-plugin-gsap": "^1.0.4",
     "vertical-timeline-component-for-react": "^1.0.7"
   },
   "scripts": {
