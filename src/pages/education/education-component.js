@@ -19,11 +19,11 @@ export class EducationComponent extends React.Component {
     }
 
     componentDidMount() {
-        TweenMax.fromTo(this.descriptionElement, 1, {opacity: 0, y: 50}, {opacity: 1, y: 0}).play();
-        TweenMax.fromTo(this.timelineElement, 1, {opacity: 0, y: 50}, {opacity: 1, y: 0, onComplete: timelineComplete}).play();
+        TweenMax.fromTo(this.descriptionElement, 0.2, {opacity: 0, y: 50}, {opacity: 1, y: 0}).play();
+        TweenMax.fromTo(this.timelineElement, 0.2, {opacity: 0, y: 50}, {opacity: 1, y: 0, onComplete: timelineComplete}).play();
 
         function timelineComplete() {
-            TweenMax.fromTo(".education-timeline-card", 1.5, {transform: 'translateY(100px)', opacity:0}, {ease: Elastic.easeOut, transform: 'translateY(0px)', opacity:1}).play();
+            TweenMax.fromTo(".education-timeline-card", 1.2, {transform: 'translateY(100px)', opacity:0}, {ease: Elastic.easeOut, transform: 'translateY(0px)', opacity:1}).play();
         }
     }
 
