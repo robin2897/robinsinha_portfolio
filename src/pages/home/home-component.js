@@ -52,7 +52,7 @@ export class HomeComponent extends React.Component {
                     </div>
                     <div id="landing-sub-heading" className="landing-sub-heading">
                         <p className="anime-landing">
-                            Hello! I am an aspiring Software developer who loves technology, and very curious to know how technology work and how can I use it for myself
+                            An Aspiring Software developer
                         </p>
                     </div>
                     <div id="landing-caption" className="landing-caption">

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { NavComponent } from "./pages/nav/nav-component";
+import { FooterComponent } from "./pages/footer/footer-component";
 import { ContactComponent } from "./pages/contact/contact-component";
 import { EducationComponent } from "./pages/education/education-component";
 import { HomeComponent } from "./pages/home/home-component";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/publications"><PublicationComponent/></Route>
           <Route path="/contact"><ContactComponent/></Route>
         </Switch>
+        <FooterComponent/>
       </div>
     </BrowserRouter>
   );

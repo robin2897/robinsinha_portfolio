@@ -45,7 +45,9 @@
     align-items: center;
     p {
         width: 48%;
-        font-size: 0.76em;
+        font-size: 0.96em;
+        padding: 2px;
+        white-space: nowrap;
         color: $accent-darker-color;
         font-weight: bold;
         text-align: center;

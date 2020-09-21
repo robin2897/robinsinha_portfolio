@@ -1,0 +1,20 @@
+@import "../../scss/_colors.scss";
+@import '../../scss/_screen.scss';
+@import '../../scss/_shared.scss';
+
+.footer-page {
+    display: flex;
+    justify-items: center;
+    background-color: $primary-color;
+    height: 10vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.copywrite-text {
+    padding: 16px;
+    text-align: center;
+    font-weight: bold;
+    color: $accent-darker-color;
+}
