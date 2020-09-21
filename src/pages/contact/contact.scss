@@ -1,0 +1,70 @@
+@import "../../scss/_colors.scss";
+@import '../../scss/_screen.scss';
+@import '../../scss/_shared.scss';
+
+.contact-landing {
+    margin-top: 10vh;
+    height: 90vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.contact-container {
+    height: 100%;
+    padding: 0px 100px;
+    flex-grow: 1;
+    padding-top: 50px !important;
+}
+
+.contact-description {
+    color: $accent-darker-color;
+    z-index: 1000;
+    h1 {
+        width: fit-content;
+        padding: 18px;
+        border: solid medium $accent-darker-color;
+    }
+}
+
+.contact-timeline-card {
+    margin-top: 6px;
+    padding: 84px;
+    opacity: 1;
+}
+
+.contact-me-container {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: $screen-medium) {
+    .contact-container {
+        width: 100%;
+        padding: 8px 8px !important;
+        height: fit-content;
+    }
+}
+
+.contact-social-link-container {
+    opacity: 0;
+}
+
+.contact-social-link {
+    color: $primary-color;
+    text-decoration: none;
+    &:hover {
+        color: $accent-color;
+    }
+}
+
+.contact-link-container {
+    padding-top: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+@media only screen and (max-width: $screen-small) {
+    .contact-timeline-card {
+        padding: 22px;
+    }
+}

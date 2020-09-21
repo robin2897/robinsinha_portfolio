@@ -8,7 +8,6 @@ import { TweenMax, Elastic } from "gsap";
 
 import { customMaterialTheme } from "../../MaterialUiTheme";
 
-
 import './education.scss'
 
 export class EducationComponent extends React.Component {
@@ -24,7 +23,7 @@ export class EducationComponent extends React.Component {
         TweenMax.fromTo(this.timelineElement, 1.6, {opacity: 0, y: 50}, {opacity: 1, y: 0, onComplete: timelineComplete}).play();
 
         function timelineComplete() {
-            TweenMax.fromTo(".education-timeline-card", 1.5, {transform: 'translateY(100px)', opacity:0.01}, {ease: Elastic.easeOut, transform: 'translateY(0px)', opacity:1}).play();
+            TweenMax.fromTo(".education-timeline-card", 1.5, {transform: 'translateY(100px)', opacity:0}, {ease: Elastic.easeOut, transform: 'translateY(0px)', opacity:1}).play();
         }
     }
 

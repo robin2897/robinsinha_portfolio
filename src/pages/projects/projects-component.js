@@ -22,7 +22,7 @@ export class ProjectsComponent extends React.Component {
         TweenMax.from(this.timelineElement, 1.6, {x: 2000, opacity:0, onComplete: timelineComplete}).play();
 
         function timelineComplete() {
-            TweenMax.fromTo(".project-timeline-card", 1.5, {transform: 'translateY(100px)', opacity:0.01}, {ease: Bounce.easeOut, transform: 'translateY(0px)', opacity:1}).play();
+            TweenMax.fromTo(".project-timeline-card", 1.5, {transform: 'translateY(100px)', opacity:0}, {ease: Bounce.easeOut, transform: 'translateY(0px)', opacity:1}).play();
         }
     }
 
@@ -68,7 +68,7 @@ export class ProjectsComponent extends React.Component {
                                                         </ul>
                                                     </Typography>
                                                     <div className="certificate-button-container">
-                                                        <Button target="_blank" className="certificate-button" color="secondary" href="https://www.hackerrank.com/certificates/0409641a45c3">
+                                                        <Button target="_blank" className="certificate-button" color="secondary" href="https://github.com/robin2897/robinsinha_portfolio">
                                                             Source
                                                         </Button>
                                                     </div>

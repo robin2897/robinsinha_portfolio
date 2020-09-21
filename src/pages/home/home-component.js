@@ -289,7 +289,7 @@ export class HomeComponent extends React.Component {
                                     <Grid container direction="row" spacing={3} justify="center" alignItems="center">
                                         <Grid item>
                                             <Typography variant="body2" color="textSecondary">
-                                                <a className="social-link" href="mailto:rsinha126@gmail.com?subject=Hi%20Robin%20from%20your%20website">
+                                                <a className="social-link" href="mailto:rsinha126@gmail.com">
                                                     <i className="fas fa-envelope fa-2x icon-social"></i>
                                                 </a>
                                             </Typography>
