@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Robin Sinha",
+  "name": "Hello! I am Robin Sinha an aspiring Software developer who loves technology, and very curious to know how technology work and how can I use it for myself",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#222831",
+  "background_color": "#393e46"
 }
