@@ -1,6 +1,9 @@
 {
   "short_name": "Robin Sinha",
-  "name": "Hello! I am Robin Sinha an aspiring Software developer who loves technology, and very curious to know how technology work and how can I use it for myself",
+  "description": "Hello! I am Robin Sinha an aspiring Software developer who loves technology, and very curious to know how technology work and how can I use it for myself",
+  "name": "Robin Sinha | An Aspiring Software Developer",
+  "version": "1.0.1",
+  "author": "Robin Sinha",
   "icons": [
     {
       "src": "favicon.ico",
