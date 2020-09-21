@@ -4,6 +4,21 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+if (process.env.NODE_ENV === "production") {  
+  let currentVersion = process.env.REACT_APP_COMMIT_REF;
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      fetch(`/version.txt?_=${Date.now()}`)
+        .then(res => res.text())
+        .then(latestVersion => {
+          if (latestVersion !== currentVersion) {
+            window.location.reload(true);
+          }
+        });
+    }
+  });
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
