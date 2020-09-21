@@ -15,6 +15,8 @@ export class ContactComponent extends React.Component {
     }
 
     componentDidMount() {
+        document.title = 'Robin Sinha | Contact';
+
         TweenMax.fromTo(this.descriptionElement, 1.6, {opacity: 0, y: 50}, {opacity: 1, y: 0}).play();
         TweenMax.fromTo(this.cardElement, 1.6, {opacity: 0, y: 50}, {opacity: 1, y: 0, onComplete: cardComplete}).play();
 

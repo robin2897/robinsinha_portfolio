@@ -18,6 +18,8 @@ export class ProjectsComponent extends React.Component {
     }
 
     componentDidMount() {
+        document.title = 'Robin Sinha | Projects';
+
         TweenMax.from(this.descriptionElement, 1.6, {x: -2000, opacity:0}).play();
         TweenMax.from(this.timelineElement, 1.6, {x: 2000, opacity:0, onComplete: timelineComplete}).play();
         TweenMax.fromTo(".phone-project-timeline-card", 1.5, {transform: 'translateY(100px)', opacity:0}, {ease: Bounce.easeOut, transform: 'translateY(0px)', opacity:1}).play();

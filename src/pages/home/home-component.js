@@ -434,6 +434,8 @@ export class HomeComponent extends React.Component {
     }
 
     componentDidMount() {
+        document.title = 'Robin Sinha';
+
         TweenMax.fromTo(".anime-landing", 1.5, {y: 50, opacity: 0}, {y: 0, opacity: 1}).play();
         TweenMax.fromTo(".landing-sub-heading", 1.5, {y: 50, opacity: 0}, {y: 0, opacity: 1}).play();
 
