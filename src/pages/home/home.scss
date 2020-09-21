@@ -188,6 +188,18 @@
     }
 }
 
+.phone-timeline-card {
+    margin-top: 9px;
+    padding: 18px;
+    opacity: 1;
+    width: 100%;
+}
+
+.phone-certificate-container {
+    display: none !important;
+
+}
+
 @media only screen and (max-width: $screen-xlarge) {
     .skills-page {
         height: fit-content;
@@ -214,6 +226,12 @@
         i {
             min-width: 40px;
         }
+    }
+}
+
+@media only screen and (max-width: $screen-small) {
+    .findme-page {
+        display: none;
     }
 }
 
@@ -248,5 +266,14 @@
     .certification-container {
         padding: 6px 10px;
         display: block;
+    }
+
+    .normal-certificate-container {
+        display: none !important;
+    }
+
+    .phone-certificate-container {
+        display: flex !important;
+        justify-content: center;
     }
 }

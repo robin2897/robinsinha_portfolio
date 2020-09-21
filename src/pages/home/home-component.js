@@ -7,17 +7,10 @@ import {
     TimelineConnector, TimelineContent, TimelineDot
 } from "@material-ui/lab";
 import { Typography, Paper, ThemeProvider, Button, Grid } from "@material-ui/core";
-
-import * as ScrollMagic from "scrollmagic";
-import gsap from "gsap";
 import { TweenMax } from "gsap";
-
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 
 import { customMaterialTheme } from "../../MaterialUiTheme";
 import './home.scss'
-
-ScrollMagicPluginGsap(ScrollMagic, gsap);
 
 export class HomeComponent extends React.Component {
     constructor(props) {
@@ -34,9 +27,7 @@ export class HomeComponent extends React.Component {
                        "an AI Enthusiast", "a Gamer"]
 
         this.sectionFindMePage = null;
-        this.timelineElement = null;
 
-        this.scrollController = new ScrollMagic.Controller();
         this.spotlightAnimationFrame = null;
         this.timelineTheme = customMaterialTheme();
         this.mouse = {x: -100, y: -100 };
@@ -113,7 +104,7 @@ export class HomeComponent extends React.Component {
                             <h1>Certification/Badges</h1>
                         </div>
                     </Grid>
-                    <Grid item lg={12} container ref={div => this.timelineElement = div}>
+                    <Grid item lg={12} container className="normal-certificate-container">
                         <ThemeProvider theme={this.timelineTheme}>
                             <Timeline>
                                 <TimelineItem>
@@ -233,6 +224,87 @@ export class HomeComponent extends React.Component {
                                     </TimelineContent>
                                 </TimelineItem>
                             </Timeline>
+                        </ThemeProvider>
+                    </Grid>
+                    <Grid item lg={12} container className="phone-certificate-container">
+                        <ThemeProvider theme={this.timelineTheme}>
+                            <Paper elevation={3} className="phone-timeline-card">
+                                <Typography variant="subtitle1" component="h1">
+                                    <b>Java (Basic) Certificate | 2020</b>
+                                </Typography>
+                                <Typography variant="subtitle2">From: HackerRank</Typography>
+                                <div className="certificate-button-container">
+                                    <Button target="_blank" className="certificate-button" color="secondary" href="https://www.hackerrank.com/certificates/0409641a45c3">
+                                        See certificate
+                                    </Button>
+                                </div>
+                            </Paper>
+                            <Paper elevation={3} className="phone-timeline-card">
+                                <Typography variant="subtitle1" component="h1">
+                                    <b>Python (Basic) Certificate | 2020</b>
+                                </Typography>
+                                <Typography variant="subtitle2">From: HackerRank</Typography>
+                                <div className="certificate-button-container">
+                                    <Button target="_blank" className="certificate-button" color="secondary" href="https://www.hackerrank.com/certificates/91f04670d30f">
+                                        See certificate
+                                    </Button>
+                                </div>
+                            </Paper>
+                            <Paper elevation={3} className="phone-timeline-card">
+                                <Typography variant="subtitle1" component="h1">
+                                    <b>Ami-Hack Hackathon | 2020</b>
+                                </Typography>
+                                <Typography variant="subtitle2">From:  Amity University</Typography>
+                                <div className="certificate-button-container">
+                                    <Button target="_blank" className="certificate-button" color="secondary" href="https://drive.google.com/file/d/1kGxK4tzskOf_EEa9-K6ww8cc-GDDtGYT/view?usp=sharing">
+                                        See certificate
+                                    </Button>
+                                </div>
+                            </Paper>
+                            <Paper elevation={3} className="phone-timeline-card">
+                                <Typography variant="subtitle1" component="h1">
+                                    <b>3 Stars (Silver badge) in Problem Solving Skill | 2020</b>
+                                </Typography>
+                                <Typography variant="subtitle2">From: HackerRank</Typography>
+                                <div className="certificate-button-container">
+                                    <Button target="_blank" className="certificate-button" color="secondary" href="https://www.hackerrank.com/rsinha126">
+                                        See badge
+                                    </Button>
+                                </div>
+                            </Paper>
+                            <Paper elevation={3} className="phone-timeline-card">
+                                <Typography variant="subtitle1" component="h1">
+                                    <b>5 Stars (Gold badge) in Java Skill | 2020</b>
+                                </Typography>
+                                <Typography variant="subtitle2">From: HackerRank</Typography>
+                                <div className="certificate-button-container">
+                                    <Button target="_blank" className="certificate-button" color="secondary" href="https://www.hackerrank.com/rsinha126">
+                                        See badge
+                                    </Button>
+                                </div>
+                            </Paper>
+                            <Paper elevation={3} className="phone-timeline-card">
+                                <Typography variant="subtitle1" component="h1">
+                                    <b>5 Stars (Gold badge) in SQL Skill | 2020</b>
+                                </Typography>
+                                <Typography variant="subtitle2">From: HackerRank</Typography>
+                                <div className="certificate-button-container">
+                                    <Button target="_blank" className="certificate-button" color="secondary" href="https://www.hackerrank.com/rsinha126">
+                                        See badge
+                                    </Button>
+                                </div>
+                            </Paper>
+                            <Paper elevation={3} className="phone-timeline-card">
+                                <Typography variant="subtitle1" component="h1">
+                                    <b>Labyrinth | 2017</b>
+                                </Typography>
+                                <Typography variant="subtitle2">From: Amity University</Typography>
+                                <div className="certificate-button-container">
+                                    <Button target="_blank" className="certificate-button" color="secondary" href="https://drive.google.com/file/d/1H3vgiXJW2psftri0MUDfyRMjRIhS8z1n/view?usp=sharing">
+                                        See certificate
+                                    </Button>
+                                </div>
+                            </Paper>
                         </ThemeProvider>
                     </Grid>
                 </Grid>
@@ -365,21 +437,12 @@ export class HomeComponent extends React.Component {
         TweenMax.fromTo(".anime-landing", 1.5, {y: 50, opacity: 0}, {y: 0, opacity: 1}).play();
         TweenMax.fromTo(".landing-sub-heading", 1.5, {y: 50, opacity: 0}, {y: 0, opacity: 1}).play();
 
-        new ScrollMagic.Scene({
-            duration: '100%',
-            triggerElement: ".certification-page",
-            reverse: false
-        })
-            .setTween(TweenMax.fromTo(this.timelineElement, 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0}))
-            .addTo(this.scrollController);
-
         this.spotlightEffect();
     }
 
     componentWillUnmount() {
         this.sectionFindMePage.removeEventListener('touchmove', this.touchMove);
         this.sectionFindMePage.removeEventListener('mousemove', this.touchMove);
-        this.scrollController.destroy(true);
         window.cancelAnimationFrame(this.spotlightAnimationFrame);
     }
 

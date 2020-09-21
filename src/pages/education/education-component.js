@@ -21,6 +21,7 @@ export class EducationComponent extends React.Component {
     componentDidMount() {
         TweenMax.fromTo(this.descriptionElement, 0.2, {opacity: 0, y: 50}, {opacity: 1, y: 0}).play();
         TweenMax.fromTo(this.timelineElement, 0.2, {opacity: 0, y: 50}, {opacity: 1, y: 0, onComplete: timelineComplete}).play();
+        TweenMax.fromTo(".phone-education-timeline-card", 1.2, {transform: 'translateY(100px)', opacity:0}, {ease: Elastic.easeOut, transform: 'translateY(0px)', opacity:1}).play();
 
         function timelineComplete() {
             TweenMax.fromTo(".education-timeline-card", 1.2, {transform: 'translateY(100px)', opacity:0}, {ease: Elastic.easeOut, transform: 'translateY(0px)', opacity:1}).play();
@@ -39,7 +40,7 @@ export class EducationComponent extends React.Component {
                                     <h1>My Academic Qualification</h1>
                                 </div>
                             </Grid>
-                            <Grid item lg={12} container>
+                            <Grid item lg={12} container className="normal-education-container">
                                 <ThemeProvider theme={timelineTheme}>
                                     <Timeline ref={div => this.timelineElement = div}>
                                         <TimelineItem>
@@ -124,6 +125,52 @@ export class EducationComponent extends React.Component {
                                             </TimelineContent>
                                         </TimelineItem>
                                     </Timeline>
+                                </ThemeProvider>
+                            </Grid>
+                            <Grid item lg={12} container className="phone-education-container">
+                                <ThemeProvider theme={timelineTheme}>
+                                    <Paper elevation={3} className="phone-education-timeline-card">
+                                        <Typography variant="subtitle1" component="h1">
+                                            <b>B.TECH. + M.TECH (DUAL) | 2016-21</b>
+                                        </Typography>
+                                        <Typography variant="subtitle2">
+                                            <b>Major:</b> Biotechnology
+                                        </Typography>
+                                        <Typography variant="subtitle2">
+                                            <b>Amity University, Sector-125 NOIDA, UP, INDIA</b>
+                                        </Typography>
+                                        <Typography variant="subtitle2">
+                                            <b>Status: </b> Currenting Pursuing
+                                        </Typography>
+                                    </Paper>
+                                    <Paper elevation={3} className="phone-education-timeline-card">
+                                        <Typography variant="subtitle1" component="h1">
+                                            <b>XII | 2015-16</b>
+                                        </Typography>
+                                        <Typography variant="subtitle2">
+                                            <b>Board:</b> CBSE
+                                        </Typography>
+                                        <Typography variant="subtitle2">
+                                            <b>Modern School, Sector-11 NOIDA, UP, INDIA</b>
+                                        </Typography>
+                                        <Typography variant="subtitle2">
+                                            <b>Status:</b> Completed
+                                        </Typography>
+                                    </Paper>
+                                    <Paper elevation={3} className="phone-education-timeline-card">
+                                        <Typography variant="subtitle1" component="h1">
+                                            <b>X | 2013-14</b>
+                                        </Typography>
+                                        <Typography variant="subtitle2">
+                                            <b>Board:</b> CBSE
+                                        </Typography>
+                                        <Typography variant="subtitle2">
+                                            <b>Modern School, Sector-11 NOIDA, UP, INDIA</b>
+                                        </Typography>
+                                        <Typography variant="subtitle2">
+                                            <b>Status:</b> Completed
+                                        </Typography>
+                                    </Paper>
                                 </ThemeProvider>
                             </Grid>
                         </Grid>

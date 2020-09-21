@@ -32,10 +32,30 @@
     opacity: 0;
 }
 
+.phone-project-timeline-card {
+    margin-top: 9px;
+    padding: 18px;
+    opacity: 1;
+    width: 100%;
+}
+
+.phone-project-container {
+    display: none !important;
+}
+
 @media only screen and (max-width: $screen-medium) {
     .project-container {
         width: 100%;
-        padding: 8px 0px !important;
+        padding: 8px 14px !important;
         height: fit-content;
+    }
+
+    .normal-project-container {
+        display: none !important;
+    }
+
+    .phone-project-container {
+        display: flex !important;
+        justify-content: center;
     }
 }
